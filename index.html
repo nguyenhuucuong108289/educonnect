@@ -7,82 +7,146 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 font-sans text-gray-900">
 
-    <nav class="bg-blue-600 p-4 text-white shadow-lg">
+    <nav class="bg-blue-600 p-4 text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold italic">EduConnect</h1>
-            <ul class="flex space-x-6">
-                <li><a href="#" class="hover:underline">Trang chủ</a></li>
-                <li><a href="#tutor-list" class="hover:underline">Tìm gia sư</a></li>
-                <li class="bg-orange-500 px-4 py-1 rounded-full font-semibold"><a href="#register">Đăng ký dạy</a></li>
+            <h1 class="text-2xl font-bold italic tracking-wider">EduConnect</h1>
+            <ul class="hidden md:flex space-x-6 font-medium">
+                <li><a href="#" class="hover:text-blue-200 transition">Trang chủ</a></li>
+                <li><a href="#tutor-list" class="hover:text-blue-200 transition">Tìm gia sư</a></li>
+                <li class="bg-orange-500 px-4 py-1 rounded-full hover:bg-orange-600 transition shadow-md">
+                    <a href="#register">Đăng ký dạy</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <header class="bg-white py-16 border-b">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Học tập tốt hơn cùng Sinh viên Giỏi</h2>
-            <p class="text-gray-600 text-lg mb-8">Kết nối phụ huynh với đội ngũ gia sư từ các trường đại học top đầu nhanh chóng.</p>
-            <a href="#tutor-list" class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-blue-700 transition">Xem danh sách Gia sư</a>
+    <header class="bg-white py-20 border-b relative overflow-hidden">
+        <div class="container mx-auto text-center relative z-10">
+            <h2 class="text-5xl font-extrabold text-gray-800 mb-6 tracking-tight">Học tập tốt hơn cùng <span class="text-blue-600">Sinh viên Giỏi</span></h2>
+            <p class="text-gray-600 text-xl mb-10 max-w-2xl mx-auto">Kết nối phụ huynh với đội ngũ gia sư chất lượng từ các trường đại học top đầu Việt Nam.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#tutor-list" class="bg-blue-600 text-white px-8 py-3 rounded-xl text-lg font-bold hover:bg-blue-700 hover:-translate-y-1 transition transform shadow-lg">Xem danh sách Gia sư</a>
+                <a href="#register" class="bg-white text-blue-600 border-2 border-blue-600 px-8 py-3 rounded-xl text-lg font-bold hover:bg-blue-50 transition shadow-md">Ứng tuyển Gia sư</a>
+            </div>
         </div>
     </header>
 
-    <section id="tutor-list" class="container mx-auto py-12">
-        <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center border-b-2 border-blue-500 w-fit mx-auto pb-2">Gia sư tiêu biểu</h3>
-        <div id="tutors-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <p class="text-center col-span-full text-gray-500">Đang tải danh sách gia sư...</p>
+    <section id="tutor-list" class="container mx-auto py-16 px-4">
+        <div class="flex flex-col items-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-2 uppercase tracking-wide">Gia sư tiêu biểu</h3>
+            <div class="h-1.5 w-24 bg-blue-500 rounded-full"></div>
+        </div>
+        
+        <div id="tutors-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="col-span-full text-center py-10">
+                <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
+                <p class="mt-4 text-gray-500">Đang tải danh sách gia sư...</p>
+            </div>
         </div>
     </section>
 
-    <section id="register" class="bg-blue-50 py-12">
-        <div class="container mx-auto max-w-lg bg-white p-8 rounded-xl shadow-md border">
-            <h3 class="text-2xl font-bold text-center mb-6">Đăng ký làm Gia sư</h3>
-            <form id="tutor-form" class="space-y-4">
-                <input type="text" id="name" placeholder="Họ và tên" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
-                <input type="text" id="school" placeholder="Trường đại học (VD: Bách Khoa)" class="w-full p-3 border rounded-lg" required>
-                <input type="text" id="subject" placeholder="Môn dạy (VD: Toán, Lý, Tiếng Anh)" class="w-full p-3 border rounded-lg" required>
-                <input type="text" id="price" placeholder="Học phí (VD: 200k/buổi)" class="w-full p-3 border rounded-lg">
-                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition">Gửi hồ sơ ngay</button>
+    <section id="register" class="bg-blue-50 py-20 px-4">
+        <div class="container mx-auto max-w-3xl bg-white p-10 rounded-3xl shadow-2xl border border-blue-100">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-2">Đăng ký làm Gia sư</h3>
+                <p class="text-gray-500 italic">Vui lòng cung cấp CCCD để xác minh danh tính</p>
+            </div>
+
+            <form id="tutor-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-bold text-gray-700 mb-1 ml-1">Họ và tên <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" placeholder="Nguyễn Văn A" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1 ml-1">Số CCCD <span class="text-red-500">*</span></label>
+                    <input type="text" id="cccd" placeholder="12 chữ số" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1 ml-1">Trình độ <span class="text-red-500">*</span></label>
+                    <select id="degree" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition appearance-none cursor-pointer" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="Sinh viên năm 1">Sinh viên năm 1</option>
+                        <option value="Sinh viên năm 2">Sinh viên năm 2</option>
+                        <option value="Sinh viên năm 3">Sinh viên năm 3</option>
+                        <option value="Sinh viên năm 4">Sinh viên năm 4</option>
+                        <option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1 ml-1">Trường đại học <span class="text-red-500">*</span></label>
+                    <input type="text" id="school" placeholder="VD: Bách Khoa" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1 ml-1">Môn dạy <span class="text-red-500">*</span></label>
+                    <input type="text" id="subject" placeholder="VD: Toán, Lý, Anh" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition" required>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-bold text-gray-700 mb-1 ml-1">Học phí mong muốn</label>
+                    <input type="text" id="price" placeholder="VD: 200k/buổi" class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition">
+                </div>
+
+                <div class="md:col-span-2 mt-4">
+                    <button type="submit" class="w-full bg-blue-600 text-white font-extrabold py-4 rounded-2xl hover:bg-blue-700 transition shadow-xl transform active:scale-95">
+                        <i class="fas fa-paper-plane mr-2"></i> GỬI HỒ SƠ ỨNG TUYỂN
+                    </button>
+                </div>
             </form>
         </div>
     </section>
 
-    <script>
-        const API_URL = '/api/tutors';
+    <footer class="bg-gray-800 text-white py-10 text-center">
+        <p>© 2026 EduConnect. Nâng tầm tri thức Việt.</p>
+    </footer>
 
-        // 1. Hàm lấy danh sách gia sư từ Server
+    <script>
+        const API_URL = 'http://localhost:5000/api/tutors';
+
         async function fetchTutors() {
             try {
                 const res = await fetch(API_URL);
                 const data = await res.json();
                 const container = document.getElementById('tutors-container');
                 
-                container.innerHTML = data.map(tutor => `
-                    <div class="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mr-4 uppercase">
-                                ${tutor.name.charAt(0)}
+                container.innerHTML = data.map(t => `
+                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition group-hover:bg-blue-100"></div>
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg mr-4 uppercase">
+                                ${t.name.charAt(0)}
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">${tutor.name}</h4>
-                                <p class="text-sm text-gray-500">${tutor.school}</p>
+                                <h4 class="font-black text-xl text-gray-800 uppercase tracking-tight">${t.name}</h4>
+                                <p class="text-blue-500 font-bold text-sm italic">${t.degree}</p>
                             </div>
                         </div>
-                        <p class="text-gray-700"><strong>Môn dạy:</strong> ${tutor.subject}</p>
-                        <p class="text-blue-600 font-bold mt-2">${tutor.price || 'Thỏa thuận'}</p>
+                        <div class="space-y-3 border-t pt-4 border-gray-50">
+                            <p class="text-gray-700"><i class="fas fa-university text-blue-400 mr-2"></i><strong>Trường:</strong> ${t.school}</p>
+                            <p class="text-gray-700"><i class="fas fa-book-open text-blue-400 mr-2"></i><strong>Dạy:</strong> ${t.subject}</p>
+                            <div class="mt-4 pt-2 flex justify-between items-center">
+                                <span class="bg-green-100 text-green-700 px-4 py-1 rounded-full font-black text-sm uppercase tracking-wider shadow-sm">
+                                    ${t.price || 'Thỏa thuận'}
+                                </span>
+                                <button class="text-blue-600 font-bold hover:underline">Chi tiết <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
                     </div>
                 `).join('');
-            } catch (err) {
-                console.error("Lỗi:", err);
-            }
+            } catch (err) { console.error("Lỗi:", err); }
         }
 
-        // 2. Hàm gửi dữ liệu đăng ký lên Server
         document.getElementById('tutor-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const tutorData = {
                 name: document.getElementById('name').value,
+                cccd: document.getElementById('cccd').value,
+                degree: document.getElementById('degree').value,
                 school: document.getElementById('school').value,
                 subject: document.getElementById('subject').value,
                 price: document.getElementById('price').value
@@ -95,13 +159,13 @@
             });
 
             if (res.ok) {
-                alert("Đăng ký thành công!");
+                alert("🎉 Chúc mừng! Hồ sơ gia sư của bạn đã được gửi thành công.");
                 document.getElementById('tutor-form').reset();
-                fetchTutors(); // Cập nhật lại danh sách ngay lập tức
+                fetchTutors();
+                window.location.hash = "#tutor-list"; // Cuộn lên danh sách để xem người mới
             }
         });
 
-        // Chạy hàm lấy dữ liệu khi vừa mở trang
         fetchTutors();
     </script>
 </body>
